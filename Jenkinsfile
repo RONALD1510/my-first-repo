@@ -1,18 +1,22 @@
-pipeline {
-    agent any
-
-    stages {
-        stage('Hello') {
-            steps {
-                git 'https://github.com/RONALD1510/my-first-repo'
-            }
-        }
-         stage('build'){
-             steps{
-                 bat 'javac Helloworld.java'
-                 bat 'Helloworld java'
-             }
-         }
-      
+pipeline 
+{
+agent any
+stages{
+    stage('Checkout')
+      {
+      steps {https://github.com/RONALD1510/my-first-repo.git }
+      }
+    stage ('Publish'){
+      steps {
+        publishHTML([
+          allowmissing:true,
+          alwaysLinktoLastBuild:false,
+          keepAll:false,
+          reportDir:'.',
+          reportFiles:'new.html' ,
+          reportName:'My html report' 
+        ])
+      }
     }
+  }
 }
