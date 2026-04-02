@@ -4,7 +4,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Use the 'git' step with a 'url' parameter
-                git url: https://github.com/RONALD1510/my-first-repo.git' branch: 'main'
+                git url: 'https://github.com/RONALD1510/my-first-repo' branch: 'main'
             }
         }
     stage('Build Image'){
